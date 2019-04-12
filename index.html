@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="script.js"></script>
+    <title>jQuery Salary Calculator</title>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <h1>Salary Calculator</h1>
+        </div>
+
+        <div class="container">
+            <h2>Add Employee</h2>
+            <input type="text" placeholder="First Name" id="firstNameInput">
+            <input type="text" placeholder="Last Name" id="lastNameInput">
+            <input type="number" placeholder="Employee ID" id="employeeIdInput">
+            <input type="text" placeholder="Title" id="titleInput">
+            <input type="number" placeholder="Annual Salary" id="annualSalaryInput">
+            <button id="submitButton">Submit</button>
+        </div>
+        <div class="container">
+            <table id="employeeDataTable" class="table table-striped">
+               <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Employee ID</th>
+                        <th>Title</th>
+                        <th>Annual Salary</th>
+                        <th>Delete Button</th>
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+                    <tr>
+                        <td>Madeline</td>
+                        <td>Morton</td>
+                        <td>1234</td>
+                        <td>Wonder Woman</td>
+                        <td>100</td>
+                        <td>Delete Button Here</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="monthlyTotalCost" class="container">
+            <h2>Monthly Total:</h2>
+        </div>
+
+    </main>
+    
+</body>
+</html>
+
+
+
