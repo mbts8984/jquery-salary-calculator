@@ -9,7 +9,7 @@ let totalAnnualSalaries = 0; // setting global numeric variable to calculate acr
 function handleReady () {
     console.log('jQuery is on');   
     buttonClick();
-    $('#tBody').on('click', '.deleteButton', deleteButtonClick);
+    $('#tBody').on('click', '#deleteButton', deleteButtonClick);
 }//end handleReady
 
 
@@ -44,6 +44,8 @@ function addNewEmployee(){
     displayObject();
 }
 
+
+
 function displayObject(){
     //$('#tBody').append(`
     let newObject = employeeData[employeeData.length-1];
@@ -55,7 +57,7 @@ function displayObject(){
             <td>${newObject.employeeID}</td>
             <td>${newObject.title}</td>
             <td>${newObject.annualSalary}</td>
-            <td><button class = "deleteButton">Delete Employee</button></td>
+            <td><button id = "deleteButton" class = "btn btn-dark">Delete Employee</button></td>
         </tr> `);
     totalAnnualSalaries += parseFloat(newObject.annualSalary);
     console.log(totalAnnualSalaries);
