@@ -9,7 +9,7 @@ let totalAnnualSalaries = 0; // setting global numeric variable to calculate acr
 function handleReady () {
     console.log('jQuery is on');   
     buttonClick();
-
+    $('#tBody').on('click', '.deleteButton', deleteButtonClick);
 }//end handleReady
 
 
@@ -17,6 +17,12 @@ function handleReady () {
  function buttonClick() {
      $('#submitButton').on('click', addNewEmployee);
      //end buttonClick
+ }
+
+ //delete button click event function
+ function deleteButtonClick() {
+     console.log('in deleteButtonClick');
+     $(this).parent().parent().remove();
  }
 
  // function grabbing input information from the fields and pushing them into the newEmployeeObject array. 
@@ -28,7 +34,7 @@ function addNewEmployee(){
         employeeID: $('#employeeIdInput').val(),
         title: $('#titleInput').val(),
         annualSalary: $('#annualSalaryInput').val()
-    }
+    } // clear input values and push newEmployeeObject into employeeData array
     employeeData.push(newEmployeeObject);
     $('#firstNameInput').val(''),
     $('#lastNameInput').val(''),
@@ -37,7 +43,7 @@ function addNewEmployee(){
     $('#annualSalaryInput').val('')
     displayObject();
 }
-// clear input values
+
 
 
 function displayObject(){
@@ -51,8 +57,24 @@ function displayObject(){
             <td>${newObject.employeeID}</td>
             <td>${newObject.title}</td>
             <td>${newObject.annualSalary}</td>
-        </tr>    
-        `)
-}
+            <td><button class = "deleteButton">Delete Employee</button></td>
+        </tr> `);
+    totalAnnualSalaries += parseFloat(newObject.annualSalary);
+    console.log(totalAnnualSalaries);
+    //run updateDOM function
+    updateDom();
+} //end displayInputs function
 
+function updateDom() {
+    console.log('in updateDom');
+    let el = $('#totalMonthlyOut');
+    el.empty();
+    // append in updated monthly total
+    let monthlyCosts = totalAnnualSalaries / 12;
+    $('#totalMonthlyOut').append(`<div>Total Monthly: ${monthlyCosts}</div>`);
+    //if total monthly cost is greater than 20k, add a red hightlight
+    if (monthlyCosts > 20000) {
+        $('#totalMonthlyOutput').addClass('highlight');
+    } //end if statement
+} //end updateDom
 
