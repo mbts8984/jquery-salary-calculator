@@ -44,8 +44,6 @@ function addNewEmployee(){
     displayObject();
 }
 
-
-
 function displayObject(){
     //$('#tBody').append(`
     let newObject = employeeData[employeeData.length-1];
@@ -66,15 +64,13 @@ function displayObject(){
 } //end displayInputs function
 
 function updateDom() {
-    console.log('in updateDom');
     let el = $('#totalMonthlyOut');
+    //empty totalMonthlyOut
     el.empty();
-    // append in updated monthly total
+    //append in updated monthly total
     let monthlyCosts = totalAnnualSalaries / 12;
-    $('#totalMonthlyOut').append(`<div>Total Monthly: ${monthlyCosts}</div>`);
-    //if total monthly cost is greater than 20k, add a red hightlight
+    $('#totalMonthlyOut').append(`<div>Total Monthly:${monthlyCosts}</div>`);
     if (monthlyCosts > 20000) {
-        $('#totalMonthlyOutput').addClass('highlight');
+        $('#totalMonthlyOut').addClass('highlight');
     } //end if statement
-} //end updateDom
-
+} // end updateDom function
